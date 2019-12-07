@@ -1,15 +1,18 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.home_page.*
 
 class Home : AppCompatActivity() {
@@ -77,6 +80,9 @@ class Home : AppCompatActivity() {
 
 
         }
+
+
+
         //starts calendar activity on calendar button tap
         calendar_button.setOnClickListener {
             val intent = Intent(this, Calendar::class.java)

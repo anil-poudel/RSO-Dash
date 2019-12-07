@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RSO</string>
+    <string name="app_name">Roommate Synchronizer Optimizer</string>
     <string name="loginPageRegister">Register</string>
     <string name="loginPageLogin">Login</string>
     <string name="title_activity_login">Sign in</string>
