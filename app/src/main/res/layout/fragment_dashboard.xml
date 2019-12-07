@@ -51,7 +51,7 @@
                                 android:id="@+id/dash_username"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Welcome back, My Name!"
+                                android:text="Welcome back, User!"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="24sp"
                                 android:textStyle="bold" />

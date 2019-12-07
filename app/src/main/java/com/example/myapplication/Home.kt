@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,7 +42,6 @@ class Home : AppCompatActivity() {
 
         //When selected each items, update the fragment view
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
-
             when (item.itemId) {
 
                 R.id.dashboard -> {
@@ -77,17 +77,37 @@ class Home : AppCompatActivity() {
 
             }
             true
-
-
         }
 
 
+        //DATABASE ACCESS
+        //gets instance of the Firestore database
+        val db = FirebaseFirestore.getInstance()
+        //save the current user's uid, which will be used to grab the user's document from Firestore database
+        val uid = FirebaseAuth.getInstance().uid.toString()
+        //grab reference to the user's document from Firestore database
+        val docRef = db.collection("users").document(uid)
+
+        //if the reference is successfully grabbed then sign the user out and display their name
+        docRef.get().addOnSuccessListener {
+            val name = it.getString("firstName")
+            val emailaddr = it.getString("email")
+            val denid= it.getString("denID")
+
+            val denname = it.getString("den_name")
+            
+            username.text = "$name"
+            dash_username.text="$name"
+            email_address.text = "$emailaddr"
+
+        }
 
         //starts calendar activity on calendar button tap
         calendar_button.setOnClickListener {
             val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
+
 
         //TODO:REMOVE DATABASE TESTING ACTIVITY, this is meant to build the database
         todo_list_button.setOnClickListener {
