@@ -95,9 +95,8 @@ class Home : AppCompatActivity() {
             val denid= it.getString("denID")
 
             val denname = it.getString("den_name")
-            
+
             username.text = "$name"
-            dash_username.text="$name"
             email_address.text = "$emailaddr"
 
         }
