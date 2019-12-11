@@ -73,6 +73,9 @@ class Home : AppCompatActivity() {
                         .replace(R.id.frame_layout, bulletinboardFragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
+
+                    val intent = Intent(this, Calendar::class.java)
+                    startActivity(intent)
                 }
 
             }
